@@ -11,8 +11,8 @@ body {
     position: absolute;
     z-index: -1;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out,
-        background-image 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    background-image: 0.3s ease-in-out;
     pointer-events: none;
     background-size: cover;
     background-repeat: no-repeat;
@@ -240,12 +240,17 @@ body {
 }
 
 #form-header {
+    margin-bottom: 0.2rem;
     opacity: 1;
     transition: opacity 0.3s;
 }
 
 #form-header.hidden {
     opacity: 0;
+}
+
+#tree-header-btns {
+    margin-bottom: 0.6rem;
 }
 
 #tr-range-1,
@@ -311,8 +316,8 @@ form div:nth-of-type(2) {
     transform: translateY(-20%);
 }
 
-#tree-all-btn,
-#intro-all-btn {
+#tree-selected-btn,
+#intro-selected-btn {
     background-image: url(assets/circle-3.svg);
 }
 
@@ -355,6 +360,10 @@ form div:nth-of-type(2) {
     transition: fill 0.3s ease-in-out, stroke 0.3s ease-in-out;
 }
 
+.tree-link-btn.grey svg [fill] {
+    fill: var(--grey);
+}
+
 .tree-link-btn.white svg [fill] {
     fill: transparent;
     stroke: var(--background-color);
@@ -363,6 +372,10 @@ form div:nth-of-type(2) {
 .all-btn {
     width: 30px;
     height: 30px;
+}
+
+.selected-btn {
+    width: 50px;
 }
 
 .tree-link-btn-icon {
@@ -425,6 +438,22 @@ form div:nth-of-type(2) {
     background-color: var(--publication);
 }
 
+.tree-link-btn.grey:hover .dataviz-label {
+    background-color: var(--grey);
+}
+
+.tree-link-btn.grey:hover .exhibition-label {
+    background-color: var(--grey);
+}
+
+.tree-link-btn.grey:hover .uiux-label {
+    background-color: var(--grey);
+}
+
+.tree-link-btn.grey:hover .publication-label {
+    background-color: var(--grey);
+}
+
 /* list drawing */
 
 #list-section {
@@ -447,6 +476,8 @@ form div:nth-of-type(2) {
 
 #list-menu {
     transition: opacity 0.3s ease-in-out;
+    max-width: 630px;
+    margin: auto;
 }
 
 #list-header {
@@ -458,11 +489,13 @@ form div:nth-of-type(2) {
     opacity: 0;
 }
 
-#list-header-btns {
+#list-header-btns,
+#tree-header-btns {
     cursor: pointer;
 }
 
-#list-header-btns span:hover {
+#list-header-btns span:hover,
+#tree-header-btns span:hover {
     text-decoration: underline;
 }
 
@@ -487,13 +520,13 @@ form div:nth-of-type(2) {
 }
 
 #list-container .list-link-btn {
-    width: 90%;
-    max-width: calc(100dvw - 550px);
+    width: calc(100dvw - 550px);
+    max-width: 600px;
     padding: 1rem 1rem 1.5rem 1rem;
     border: 1.5px solid var(--primary-color);
     text-decoration: none;
     color: var(--primary-color);
-    transition: opacity 0.3s ease-in-out, border 0.3s ease-in-out;;
+    transition: opacity 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.15s ease-in-out;
 
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
@@ -504,6 +537,10 @@ form div:nth-of-type(2) {
     column-gap: 1rem;
     align-items: start;
     align-content: start;
+}
+
+#list-container .list-link-btn:hover {
+    transform: scale(1.05);
 }
 
 .list-link-btn .list-link-title {
@@ -536,7 +573,9 @@ form div:nth-of-type(2) {
     border: 1.5px solid var(--background-color);
 }
 
-.list-link-btn.white .list-link-title, .list-link-btn.white .list-link-subtitle, .list-link-btn.white .list-link-blurb  {
+.list-link-btn.white .list-link-title,
+.list-link-btn.white .list-link-subtitle,
+.list-link-btn.white .list-link-blurb {
     color: var(--background-color);
 }
 
@@ -592,7 +631,11 @@ form div:nth-of-type(2) {
     }
 
     #list-container .list-link-btn {
-        max-width: none;
+        width: 90%;
+    }
+
+    #list-container .list-link-btn:hover {
+        transform: none;
     }
 
     #view-toggle-btn-mobile {

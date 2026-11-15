@@ -1,5 +1,3 @@
-const body = document.body
-
 // set up
 const navBarLogoContainer = document.createElement('a');
 navBarLogoContainer.href = 'index.html';

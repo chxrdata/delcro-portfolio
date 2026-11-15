@@ -6,17 +6,7 @@ const textureContainer = document.getElementById('texture-container');
 const desktopAbout = document.getElementById('home-about-desktop');
 const toggleViewBtnDesktop = document.getElementById('view-toggle-btn-desktop');
 const toggleViewBtnMobile = document.getElementById('view-toggle-btn-mobile');
-let isSmallScreen = false;
-if (window.innerWidth <= 767) {
-    isSmallScreen = true;
-}
-let isMobile = false;
-if (window.matchMedia("(any-hover:none)").matches) {
-    isMobile = true;
-}
-if (!(localStorage.getItem("viewPreference"))) {
-    localStorage.setItem("viewPreference", "tree");
-};
+
 
 async function readWorkJSON(filePath) {
     try {
@@ -93,8 +83,8 @@ for (const btn of introBtnArr) {
         const btnType = btnId.slice(btnId.indexOf('-') + 1, btnId.indexOf('-', btnId.indexOf('-') + 1))
 
         switch (btnType) {
-            case 'all':
-                introLabel.innerHTML = '<p>All Work</p>'
+            case 'selected':
+                introLabel.innerHTML = '<p>Selected Work</p>'
                 break;
             case 'dataviz':
                 introLabel.innerHTML = '<p>Data Visualization</p>'
@@ -122,6 +112,9 @@ for (const btn of introBtnArr) {
 readWorkJSON('assets/work.json')
     .then(data => {
 
+        const treeBtns = document.querySelectorAll('#tree-header-btns span');
+        const listBtns = document.querySelectorAll('#list-header-btns span');
+
         // TREE DRAWING
 
         // init
@@ -129,12 +122,6 @@ readWorkJSON('assets/work.json')
         let treeSlider1Value = treeSlider1.value;
         const treeSlider2 = document.getElementById('tr-range-2');
         let treeSlider2Value = treeSlider2.value;
-        const treeAllBtn = document.getElementById('tree-all-btn');
-        const treeDatavizBtn = document.getElementById('tree-dataviz-btn');
-        const treeExhibitionBtn = document.getElementById('tree-exhibition-btn');
-        const treeUiuxBtn = document.getElementById('tree-uiux-btn');
-        const treePublicationBtn = document.getElementById('tree-publication-btn');
-        const treeBtns = [treeAllBtn, treeDatavizBtn, treeExhibitionBtn, treeUiuxBtn, treePublicationBtn]
         const treeFormContainer = document.getElementById('tree-form-container');
         const treeFormHeader = document.getElementById('form-header');
         const treeLinksContainer = document.getElementById('tree-links-container');
@@ -142,7 +129,7 @@ readWorkJSON('assets/work.json')
         let drawTimer;
         let isLoopRunning = true;
         if (!(localStorage.getItem("currentType"))) {
-            localStorage.setItem("currentType", "all");
+            localStorage.setItem("currentType", "selected");
         };
 
         // tree drawing function
@@ -179,6 +166,7 @@ readWorkJSON('assets/work.json')
             let itMax = 6;
 
             switch (type) {
+                case 'selected':
                 case 'all':
                     rules = [['F', 'FF'], ['E', 'F-[[E]+E]+F[+FE]-E,F+[[E]-E]-F[-FE]+E']];
                     deg = 20;
@@ -208,7 +196,6 @@ readWorkJSON('assets/work.json')
                 iterations = 5 // so dots actually draw lol
             } else {
                 iterations = (Math.floor((0.01 * treeSlider2Value) * (itMax - 1)) + itMin) // mutiplies iterations by sunlight slider, range of itMin - itMax
-
             };
 
             let str = 'E';
@@ -288,6 +275,12 @@ readWorkJSON('assets/work.json')
                         "str": "++F-F-F-F-F-F-F-F"
                     },
                     {
+                        "type": "selected",
+                        "dis": 10,
+                        "ang": 45,
+                        "str": "++F-F-F-F-F-F-F-F"
+                    },
+                    {
                         "type": "dataviz",
                         "dis": 10,
                         "ang": 45,
@@ -315,10 +308,15 @@ readWorkJSON('assets/work.json')
 
                 // set up svg btn icons
 
-                const circleBlue = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><circle fill="#445f35" cx="12.5" cy="12.5" r="12.05"/><circle fill="#449af4" cx="12.5" cy="12.5" r="12.05"/><circle fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".5" cx="12.5" cy="12.5" r="12.05"/></svg>`;
-                const circleGreen = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><circle fill="#445f35" cx="12.5" cy="12.5" r="12.05"/><circle fill="#79ad3d" cx="12.5" cy="12.5" r="12.05"/><circle fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".5" cx="12.5" cy="12.5" r="12.05"/></svg>`;
-                const circleOrange = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><circle fill="#445f35" cx="12.5" cy="12.5" r="12.05"/><circle fill="#ff7c48" cx="12.5" cy="12.5" r="12.05"/><circle fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".5" cx="12.5" cy="12.5" r="12.05"/></svg>`;
-                const circleYellow = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><circle fill="#445f35" cx="12.5" cy="12.5" r="12.05"/><circle fill="#ffc217" cx="12.5" cy="12.5" r="12.05"/><circle fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".5" cx="12.5" cy="12.5" r="12.05"/></svg>`;
+                const smCircleBlue = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><circle fill="#445f35" cx="12.5" cy="12.5" r="12.05"/><circle fill="#449af4" cx="12.5" cy="12.5" r="12.05"/><circle fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".5" cx="12.5" cy="12.5" r="12.05"/></svg>`;
+                const smCircleGreen = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><circle fill="#445f35" cx="12.5" cy="12.5" r="12.05"/><circle fill="#79ad3d" cx="12.5" cy="12.5" r="12.05"/><circle fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".5" cx="12.5" cy="12.5" r="12.05"/></svg>`;
+                const smCircleOrange = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><circle fill="#445f35" cx="12.5" cy="12.5" r="12.05"/><circle fill="#ff7c48" cx="12.5" cy="12.5" r="12.05"/><circle fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".5" cx="12.5" cy="12.5" r="12.05"/></svg>`;
+                const smCircleYellow = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25"><circle fill="#445f35" cx="12.5" cy="12.5" r="12.05"/><circle fill="#ffc217" cx="12.5" cy="12.5" r="12.05"/><circle fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".5" cx="12.5" cy="12.5" r="12.05"/></svg>`;
+
+                const circleBlue = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle fill="#449af4" cx="16" cy="16" r="12.05"/><circle fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".5" cx="16" cy="16" r="12.05"/></svg>`;
+                const circleGreen = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle fill="#79ad3d" cx="16" cy="16" r="12.05"/><circle fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".5" cx="16" cy="16" r="12.05"/></svg>`;
+                const circleOrange = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle fill="#ff7c48" cx="16" cy="16" r="12.05"/><circle fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".5" cx="16" cy="16" r="12.05"/></svg>`;
+                const circleYellow = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle fill="#ffc217" cx="16" cy="16" r="12.05"/><circle fill="none" stroke="#000" stroke-miterlimit="10" stroke-width=".5" cx="16" cy="16" r="12.05"/></svg>`;
 
                 const diamondSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><polygon fill="#79ad3d" stroke="#000" stroke-miterlimit="10" stroke-width=".5" points="50 17.28 45.31 5.12 32.22 26.75 31.28 12.72 20.47 5.45 22.17 31.04 13.03 19.67 0 19.92 20.08 44.88 33.41 44.68 50 17.28"/></svg>`;
                 const doubleSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path fill="#449af4" stroke="#000" stroke-miterlimit="10" stroke-width=".5" d="M32.76,8.23c-2.96,2.85-5.73,6.87-7.99,11.29-1.99-4.49-4.5-8.6-7.26-11.58C10.84.72,5.27,2.84,5.09,12.68c-.18,9.84,5.09,23.67,11.77,30.9,3.51,3.79,6.7,4.99,8.97,3.86,1.65-.49,3.52-1.65,5.53-3.59,7.08-6.83,13.14-20.34,13.52-30.17.38-9.83-5.05-12.27-12.13-5.44Z"/></svg>`;
@@ -333,7 +331,7 @@ readWorkJSON('assets/work.json')
 
                 // DRAWING TREE
 
-                const timeToDraw = 1;
+                const timeToDraw = 0.5;
                 let segmentsPerFrame = Math.ceil((totalSegments / (timeToDraw * 62.5))); // sets segmentsPerFrame to value needed to draw in timeToDraw. derived in sketchbook it just works ok
 
                 // run with dis = 1 to get initial height
@@ -590,7 +588,7 @@ readWorkJSON('assets/work.json')
 
                     let iconSvg;
                     switch (type) {
-                        case 'all':
+                        case 'selected':
                             switch (work.tags[0]) {
                                 case 'dataviz':
                                     iconSvg = circleGreen;
@@ -603,6 +601,22 @@ readWorkJSON('assets/work.json')
                                     break
                                 case 'publication':
                                     iconSvg = circleOrange;
+                                    break
+                            }
+                            break;
+                        case 'all':
+                            switch (work.tags[0]) {
+                                case 'dataviz':
+                                    iconSvg = smCircleGreen;
+                                    break
+                                case 'exhibition':
+                                    iconSvg = smCircleBlue;
+                                    break
+                                case 'uiux':
+                                    iconSvg = smCircleYellow;
+                                    break
+                                case 'publication':
+                                    iconSvg = smCircleOrange;
                                     break
                             }
                             break;
@@ -633,8 +647,18 @@ readWorkJSON('assets/work.json')
 
                     newLinkBtn.href = work.link;
                     newLinkBtn.classList.add("tree-link-btn");
-                    if (type == 'all') {
+                    if (localStorage.getItem('visitedPages').split(',').length === data.length) {
+                        localStorage.setItem('visitedPages', '');
+                    }
+                    if (localStorage.getItem('visitedPages').split(',').includes(work.id)) {
+                        newLinkBtn.classList.add('grey');
+                    };
+
+                    if (type === 'all') {
                         newLinkBtn.classList.add("all-btn")
+                    }
+                    if (type === 'selected') {
+                        newLinkBtn.classList.add("selected-btn")
                     }
                     if (isMobile) {
                         newLinkBtn.classList.add('mobile');
@@ -661,7 +685,7 @@ readWorkJSON('assets/work.json')
                     const btnLabelSpan = document.createElement('span');
                     btnLabelSpan.innerHTML = work.name
                     btnLabelSpan.classList.add(type + "-label");
-                    if (type == 'all') {
+                    if (type == 'selected' || type == 'all') {
                         btnLabelSpan.classList.add(work.tags[0] + "-label");
                     }
 
@@ -745,6 +769,7 @@ readWorkJSON('assets/work.json')
                             if (localStorage.getItem('currentType') === 'all') {
                                 btnLabel.classList.add('hidden');
                             }
+
                         });
                     }
                 }
@@ -789,76 +814,18 @@ readWorkJSON('assets/work.json')
             }
         };
 
-        function drawOnBtnClick(e) {
-
-            // check if this is being drawn on a button click, or being drawn if user is past intro
-
-            if (typeof e?.target?.id !== "undefined") {
-                const btnId = e.target.id
-                const btnType = btnId.slice(btnId.indexOf('-') + 1, btnId.indexOf('-', btnId.indexOf('-') + 1)) // extracts only type name
-                localStorage.setItem('currentType', btnType);
-            }
-
-            let localCurrentType = localStorage.getItem('currentType');
-
-            // draw tree
-
-            let headerText;
-
-            switch (localCurrentType) {
-                case 'all':
-                    headerText = 'All Work';
-                    break;
-                case 'dataviz':
-                    headerText = 'Data Visualization';
-                    break;
-                case 'exhibition':
-                    headerText = 'Exhibition Design';
-                    break;
-                case 'uiux':
-                    headerText = 'UI/UX';
-                    break;
-                case 'publication':
-                    headerText = 'Publication Design';
-                    break;
-            }
-
-            treeFormHeader.classList.add('hidden');
-            setTimeout(() => {
-                treeFormHeader.innerHTML = headerText;
-                treeFormHeader.classList.remove('hidden');
-            }, 200);
-            drawToCanvas(localCurrentType, 400); // small delay, just so isLoopRunning can work
-
-            drawList();
-
-        }
-
-        window.addEventListener('resize', () => {
-            arrangeIntroBtns();
-            drawToCanvas(localStorage.getItem('currentType'), 1000);
-            if (window.innerWidth <= 767) {
-                isSmallScreen = true;
-            };
-        })
 
         //on form action behavior
 
         treeSlider1.addEventListener('input', (e) => {
             treeSlider1Value = e.target.value;
-            drawToCanvas(localStorage.getItem('currentType'), 1000)
+            drawToCanvas(localStorage.getItem('currentType'), 100)
         });
 
         treeSlider2.addEventListener('input', (e) => {
             treeSlider2Value = e.target.value;
-            drawToCanvas(localStorage.getItem('currentType'), 1000)
+            drawToCanvas(localStorage.getItem('currentType'), 100)
         });
-
-        // on form seed button click
-
-        for (const treeBtn of treeBtns) {
-            treeBtn.addEventListener('click', (e) => drawOnBtnClick(e));
-        }
 
         // on intro seed btn click
         for (const btn of introBtnArr) {
@@ -877,27 +844,27 @@ readWorkJSON('assets/work.json')
                     introAnimationContainer.style.display = 'none';
                 }, 200);
 
-                drawOnBtnClick(e);
+                drawTreeAndList('both');
             })
         }
 
-        // LIST VIEW
+        // DRAW TREE AND/OR LIST
 
         const listSection = document.getElementById('list-section');
         const listHeader = document.getElementById('list-header');
         const listMenu = document.getElementById('list-menu');
         const listContainer = document.getElementById('list-container');
-        const listBtns = document.querySelectorAll('#list-header-btns span');
 
-        function drawList() {
+        function drawTreeAndList(toDraw) {
 
             let localCurrentType = localStorage.getItem('currentType');
 
-            // fill header text
-
-            let headerText; // this section is copied from tree form header replacement above
+            let headerText;
 
             switch (localCurrentType) {
+                case 'selected':
+                    headerText = 'Selected Work';
+                    break;
                 case 'all':
                     headerText = 'All Work';
                     break;
@@ -915,133 +882,182 @@ readWorkJSON('assets/work.json')
                     break;
             }
 
-            listHeader.classList.add('hidden');
-            listContainer.style.transition = 'none';
-            listContainer.style.opacity = '0';
-            listContainer.style.transform = 'translateY(10px)';
+            // Draw tree
+            if (toDraw === 'tree' || toDraw === 'both') {
 
-            setTimeout(() => {
-                listHeader.innerHTML = headerText;
-                listHeader.classList.remove('hidden');
-                listContainer.style.transition = 'transform 0.2s ease-in-out, opacity 0.2s ease-in-out';
-                listContainer.style.opacity = '1';
-                listContainer.style.transform = 'translateY(0)';
-            }, 200);
+                treeFormHeader.classList.add('hidden');
+                setTimeout(() => {
+                    treeFormHeader.innerHTML = headerText;
+                    treeFormHeader.classList.remove('hidden');
+                }, 200);
+                drawToCanvas(localCurrentType, 100); // small delay, just so isLoopRunning can work
 
-            // create new list elements
+            };
 
-            listContainer.replaceChildren();
+            // Draw list
+            if (toDraw === 'list' || toDraw === 'both') {
 
-            const worksOfType = data.filter((work) => work.tags.includes(localStorage.getItem('currentType')));
-            for (const work of worksOfType) {
+                listHeader.classList.add('hidden');
+                listContainer.style.transition = 'none';
+                listContainer.style.opacity = '0';
+                listContainer.style.transform = 'translateY(10px)';
 
-                const listLinkBtn = document.createElement('a');
-                listLinkBtn.classList.add('list-link-btn');
-                listLinkBtn.href = work.link;
+                setTimeout(() => {
+                    listHeader.innerHTML = headerText;
+                    listHeader.classList.remove('hidden');
+                    listContainer.style.transition = 'transform 0.2s ease-in-out, opacity 0.2s ease-in-out';
+                    listContainer.style.opacity = '1';
+                    listContainer.style.transform = 'translateY(0)';
+                }, 200);
 
-                const title = document.createElement('div');
-                title.classList.add('list-link-title');
-                title.innerText = work.name;
+                // create new list elements
 
-                const subtitle = document.createElement('div');
-                subtitle.classList.add('list-link-subtitle');
-                subtitle.innerText = work.kind;
+                listContainer.replaceChildren();
 
-                const blurb = document.createElement('p');
-                blurb.classList.add('list-link-blurb');
-                blurb.innerText = work.blurb;
+                const worksOfType = data.filter((work) => work.tags.includes(localStorage.getItem('currentType')));
+                for (const work of worksOfType) {
 
-                let tags = [];
-                for (const tag of work.tags) {
-                    if (tag !== "all") {
-                        tags.push(`<span class="${tag}-highlight">${tag}</span>`);
+                    const listLinkBtn = document.createElement('a');
+                    listLinkBtn.classList.add('list-link-btn');
+                    listLinkBtn.href = work.link;
+
+                    const title = document.createElement('div');
+                    title.classList.add('list-link-title');
+                    title.innerText = work.name;
+
+                    const subtitle = document.createElement('div');
+                    subtitle.classList.add('list-link-subtitle');
+                    subtitle.innerText = work.kind;
+
+                    const blurb = document.createElement('p');
+                    blurb.classList.add('list-link-blurb');
+                    blurb.innerText = work.blurb;
+
+                    let tags = [];
+                    for (const tag of work.tags) {
+                        if (tag !== "selected" && tag !== "all") {
+                            tags.push(`<span class="${tag}-highlight">${tag}</span>`);
+                        }
                     }
-                }
-                const tagsStr = tags.join("&ensp;");
-                const tagsContainer = document.createElement('div');
-                tagsContainer.classList.add('list-link-tags');
-                tagsContainer.innerHTML = tagsStr;
+                    const tagsStr = tags.join("&ensp;");
+                    const tagsContainer = document.createElement('div');
+                    tagsContainer.classList.add('list-link-tags');
+                    tagsContainer.innerHTML = tagsStr;
 
-                listLinkBtn.append(title, subtitle, tagsContainer, blurb);
-                listContainer.append(listLinkBtn);
+                    listLinkBtn.append(title, subtitle, tagsContainer, blurb);
+                    listContainer.append(listLinkBtn);
 
-                if (!isMobile) {
-                    listLinkBtn.addEventListener('mouseenter', () => {
+                    // hover state
 
-                        // turn everything white
-                        // copied from above "turn everything white"
+                    /*
+                    if (!isMobile) {
+                        listLinkBtn.addEventListener('mouseenter', () => {
 
-                        textureContainer.style.backgroundImage = `url(assets/textures/tx-${work.id}.png)`;
-                        textureContainer.style.opacity = 1;
+                            // turn everything white
+                            // copied from above "turn everything white"
 
-                        desktopAbout.style.opacity = 0;
-                        listMenu.style.opacity = 0;
-                        toggleViewBtnMobile.style.opacity = 0;
-                        listLinkBtn.classList.add('white');
+                            textureContainer.style.backgroundImage = `url(assets/textures/tx-${work.id}.png)`;
+                            textureContainer.style.opacity = 1;
 
-                        const listLinkBtns = document.querySelectorAll('.list-link-btn');
-                        for (const b of listLinkBtns) {
-                            if (!(b.matches(':hover'))) {
-                                b.style.opacity = 0;
-                            }
-                        };
-                    });
+                            desktopAbout.style.opacity = 0;
+                            listMenu.style.opacity = 0;
+                            toggleViewBtnMobile.style.opacity = 0;
+                            listLinkBtn.classList.add('white');
 
-                    listLinkBtn.addEventListener('mouseleave', () => {
+                            const listLinkBtns = document.querySelectorAll('.list-link-btn');
+                            for (const b of listLinkBtns) {
+                                if (!(b.matches(':hover'))) {
+                                    b.style.opacity = 0;
+                                }
+                            };
+                        });
 
-                        // return original colors
-                        // copied from above "return original colors"
+                        listLinkBtn.addEventListener('mouseleave', () => {
 
-                        textureContainer.style.opacity = 0;
-                        desktopAbout.style.opacity = 1;
-                        listMenu.style.opacity = 1;
-                        toggleViewBtnMobile.style.opacity = 1;
-                        listLinkBtn.classList.remove('white');
+                            // return original colors
+                            // copied from above "return original colors"
 
-                        const listLinkBtns = document.querySelectorAll('.list-link-btn');
-                        for (const b of listLinkBtns) {
-                            b.style.opacity = 1;
-                        };
-                    });
+                            textureContainer.style.opacity = 0;
+                            desktopAbout.style.opacity = 1;
+                            listMenu.style.opacity = 1;
+                            toggleViewBtnMobile.style.opacity = 1;
+                            listLinkBtn.classList.remove('white');
 
-                    listContainer.addEventListener('scroll', () => {
+                            const listLinkBtns = document.querySelectorAll('.list-link-btn');
+                            for (const b of listLinkBtns) {
+                                b.style.opacity = 1;
+                            };
+                        });
 
-                        // do same as mouse leave on scroll
+                        listContainer.addEventListener('scroll', () => {
 
-                        textureContainer.style.opacity = 0;
-                        desktopAbout.style.opacity = 1;
-                        listMenu.style.opacity = 1;
-                        toggleViewBtnMobile.style.opacity = 1;
-                        listLinkBtn.classList.remove('white');
+                            // do same as mouse leave on scroll
 
-                        const listLinkBtns = document.querySelectorAll('.list-link-btn');
-                        for (const b of listLinkBtns) {
-                            b.style.opacity = 1;
-                        };
-                    })
+                            textureContainer.style.opacity = 0;
+                            desktopAbout.style.opacity = 1;
+                            listMenu.style.opacity = 1;
+                            toggleViewBtnMobile.style.opacity = 1;
+                            listLinkBtn.classList.remove('white');
 
-                }
+                            const listLinkBtns = document.querySelectorAll('.list-link-btn');
+                            for (const b of listLinkBtns) {
+                                b.style.opacity = 1;
+                            };
+                        })
 
-                // color btns
+                    } */
 
-                for (const b of listBtns) {
-                    b.className = "";
-                    if (b.innerText == localCurrentType) {
-                        b.classList.add(`${localCurrentType}-highlight`);
-                    }
                 }
 
             }
-        };
 
-        drawList();
+            // color btns
 
-        // list menu
+            for (const b of listBtns) {
+                b.className = "";
+                if (b.innerText == localCurrentType) {
+                    b.classList.add(`${localCurrentType}-highlight`);
+                }
+            }
+
+            for (const b of treeBtns) {
+                b.className = "";
+                if (b.innerText == localCurrentType) {
+                    b.classList.add(`${localCurrentType}-highlight`);
+                }
+            }
+
+        }
+
+        drawTreeAndList('list');
+
+        // MENU BTNS ON CLICK
+
+        for (const b of treeBtns) {
+            b.addEventListener('click', () => {
+
+                if (localStorage.getItem('currentType') === b.innerText) {
+                    localStorage.setItem('currentType', 'all');
+                } else {
+                    localStorage.setItem('currentType', b.innerText);
+                }
+
+                drawTreeAndList('both');
+
+            })
+        }
 
         for (const b of listBtns) {
             b.addEventListener('click', () => {
-                localStorage.setItem('currentType', b.innerText);
-                drawList();
+
+                if (localStorage.getItem('currentType') === b.innerText) {
+                    localStorage.setItem('currentType', 'all');
+                } else {
+                    localStorage.setItem('currentType', b.innerText);
+                }
+
+                drawTreeAndList('list');
+
             })
         }
 
@@ -1078,7 +1094,7 @@ readWorkJSON('assets/work.json')
 
                 localStorage.setItem("viewPreference", "tree");
 
-                drawOnBtnClick();
+                drawTreeAndList('both');
 
                 treeFormContainer.style.display = "";
                 treeLinksContainer.style.display = "";
@@ -1140,12 +1156,26 @@ readWorkJSON('assets/work.json')
                 toggleBtnTextMobile.innerText = ' List View';
             } else {
 
-                drawOnBtnClick(localStorage.getItem('currentType'));
+                drawTreeAndList('both');
 
                 treeFormContainer.style.opacity = 1;
             }
         } else {
             introAnimationContainer.style.opacity = 1; // so that it doesn't show for a brief second on reload
         };
+
+        window.addEventListener('resize', () => {
+            if (!(localStorage.getItem("pastIntro") === "true")) {
+                arrangeIntroBtns();
+            }
+
+            if (localStorage.getItem("viewPreference") === 'tree') {
+                drawToCanvas(localStorage.getItem('currentType'), 1000);
+                if (window.innerWidth <= 767) {
+                    isSmallScreen = true;
+                };
+            }
+
+        })
 
     });

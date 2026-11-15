@@ -1,8 +1,3 @@
-let onMobile = false;
-if (window.innerWidth <= 767) {
-    onMobile = true;
-}
-
 async function readWorkJSON(filePath) {
     try {
         const response = await fetch(filePath)
@@ -26,6 +21,21 @@ readWorkJSON('assets/work.json')
         const internalId = document.getElementById("internal-id").textContent
         const work = data.find((work) => work.id === internalId);
 
+        // record page as visited
+        let visitedPagesArr
+
+        if (localStorage.getItem("visitedPages")) {
+            visitedPagesArr = localStorage.getItem("visitedPages").split(",");
+        } else {
+            visitedPagesArr = [];
+        }
+
+        if (!visitedPagesArr.includes(work.id)) {
+            visitedPagesArr.push(work.id)
+        }
+
+        localStorage.setItem("visitedPages", visitedPagesArr.join(","))
+
         // set up header
         document.getElementById("intro-head").innerText = work.name;
         document.getElementById("intro-head-mobile").innerText = work.name;
@@ -36,20 +46,26 @@ readWorkJSON('assets/work.json')
         const introTagsMobile = document.getElementById("intro-tags-mobile");
         let tags = [];
         for (const tag of work.tags) {
-            if (tag !== "all") {
+            if (tag !== "all" && tag !== "selected") {
                 const tagEl = document.createElement('a');
                 tagEl.classList.add(`${tag}-highlight`);
                 tagEl.href = 'index.html';
                 tagEl.innerText = tag;
-                tagEl.addEventListener('click', () => {
-                    localStorage.setItem('currentType', tag)
-                })
 
                 introTags.appendChild(tagEl.cloneNode(true));
 
                 introTagsMobile.appendChild(tagEl);
             }
         }
+
+        introTags.addEventListener('click', (e) => {
+            localStorage.setItem('pastIntro', 'true');
+            localStorage.setItem('currentType', e.target.innerText);
+        })
+        introTagsMobile.addEventListener('click', (e) => {
+            localStorage.setItem('pastIntro', 'true');
+            localStorage.setItem('currentType', e.target.innerText);
+        })
 
         // set up large images
         const galleryImages = document.getElementById("work-gallery");
@@ -72,7 +88,7 @@ readWorkJSON('assets/work.json')
                 video.src = link;
                 videoContainer.appendChild(video);
 
-                if (work.id === 'lnt') { // only add audio controls for videos with audio, which is only lnt currently
+                if (work.id === 'lnt' || work.id === 'wont-judge') { // only add audio controls for videos with audio, which is only lnt currently
                     const volumeBtn = document.createElement("div");
                     volumeBtn.style.backgroundImage = 'url(assets/icons/vol-mute.svg)';
                     volumeBtn.classList.add("volume-btn");
@@ -105,7 +121,7 @@ readWorkJSON('assets/work.json')
                 const iframe = document.createElement("iframe");
                 iframe.src = link;
                 introImages.appendChild(iframe);
-            } else if ((link.slice(link.lastIndexOf(".") + 1)) === "webp" || (link.slice(link.lastIndexOf(".") + 1)) === "png" || (link.slice(link.lastIndexOf(".") + 1)) === "jpg") {
+            } else if ((link.slice(link.lastIndexOf(".") + 1)) === "webp" || (link.slice(link.lastIndexOf(".") + 1)) === "png" || (link.slice(link.lastIndexOf(".") + 1)) === "jpg" || (link.slice(link.lastIndexOf(".") + 1)) === "gif") {
                 const img = document.createElement('img');
                 img.src = link;
                 introImages.appendChild(img);
@@ -133,7 +149,7 @@ readWorkJSON('assets/work.json')
                 scrollHandler = null;
             }
 
-            if (onMobile === false) {
+            if (isMobile === false) {
 
                 introAbout.replaceChildren();
 
@@ -236,7 +252,7 @@ readWorkJSON('assets/work.json')
                 const iframe = document.createElement("iframe");
                 iframe.src = link;
                 introInfo.appendChild(iframe);
-            } else if ((link.slice(link.lastIndexOf(".") + 1)) === "webp" || (link.slice(link.lastIndexOf(".") + 1)) === "png" || (link.slice(link.lastIndexOf(".") + 1)) === "jpg") {
+            } else if ((link.slice(link.lastIndexOf(".") + 1)) === "webp" || (link.slice(link.lastIndexOf(".") + 1)) === "png" || (link.slice(link.lastIndexOf(".") + 1)) === "jpg" || (link.slice(link.lastIndexOf(".") + 1)) === "gif") {
                 const img = document.createElement('img');
                 img.src = link;
                 introInfo.appendChild(img);

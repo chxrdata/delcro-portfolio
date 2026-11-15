@@ -27,13 +27,19 @@ canvas {
     max-width: 400px;
 }
 
+#btn-container {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 200px;
+}
+
 #draw-btn,
-#clear-btn {
+#clear-btn,
+#download-btn {
     display: inline-block;
-    margin-right: 10px;
-    margin-top: 10px;
-    padding: 2px 0;
-    width: 7rem;
+    padding: 2px 10px;
     border: 1.5px solid var(--primary-color);
     cursor: pointer;
     text-align: center;
@@ -41,7 +47,8 @@ canvas {
 }
 
 #draw-btn:hover,
-#clear-btn:hover {
+#clear-btn:hover,
+#download-btn:hover {
     background-color: var(--primary-color);
     color: var(--background-color)
 }
@@ -73,4 +80,10 @@ canvas {
         width: 100dvw;
         left: 0;
     }
+
+    #btn-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
 }

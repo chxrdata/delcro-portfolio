@@ -5,15 +5,6 @@ const canvas = document.getElementById("treeCanvas");
 const ctx = canvas.getContext("2d");
 let drawTimer;
 let isLoopRunning = true;
-let isSmallScreen = false;
-if (window.innerWidth <= 767) {
-    isSmallScreen = true;
-}
-let isMobile = false;
-if (window.matchMedia("(any-hover:none)").matches) {
-    isMobile = true;
-}
-
 // delay
 
 function delay(ms) {
@@ -391,15 +382,38 @@ if (!isSmallScreen) {
     redraw(0);
 }
 
+function downloadCanvasBlobAsPNG() {
+
+    canvas.toBlob((blob) => {
+
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement('a');
+        link.download = 'my-bouquet';
+        link.href = url;
+        document.body.appendChild(link);
+        link.click();
+
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+
+    }, 'image/png');
+}
+
 const drawBtn = document.getElementById('draw-btn');
 const clearBtn = document.getElementById('clear-btn');
+const downloadBtn = document.getElementById('download-btn');
 
 drawBtn.addEventListener('click', () => redraw(100));
-window.addEventListener('resize', () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    redraw(1000)
-});
+
 clearBtn.addEventListener('click', () => {
     isLoopRunning = false;
     ctx.clearRect(0, 0, canvas.width, canvas.height)
+});
+
+downloadBtn.addEventListener('click', () => downloadCanvasBlobAsPNG());
+
+window.addEventListener('resize', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    redraw(1000)
 });

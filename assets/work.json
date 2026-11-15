@@ -7,7 +7,8 @@
         "tags": [
             "uiux",
             "publication",
-            "all"
+            "all",
+            "selected"
         ],
         "img-link": "assets/thumbnails/thumbnail-keepintouch.webp",
         "img-arr-sm": [
@@ -37,7 +38,8 @@
         "tags": [
             "dataviz",
             "uiux",
-            "all"
+            "all",
+            "selected"
         ],
         "img-link": "assets/thumbnails/thumbnail-freeMuseums.webp",
         "img-arr-sm": [
@@ -54,7 +56,7 @@
             "The map contains over 150 museums, each with different types, hours, and free programs. To reduce mental load on the user, I developed a robust three-category filter system paired with iconography designed to match the user’s preconceived notions: type colors match common colors associated with museum topics, and days are formatted like a weekly calendar. Advanced filters are concealed in the menu as to not overwhelm the user on load.",
             "To keep the map accessible, colors have high contrast and feature labels include letters. The map is dynamically coded, designed to resize when the user increases their font size."
         ],
-        "blurb":"NYC Free Museums is an interactive web map showing free museums around New York City to bring informal education to every kind of New Yorker."
+        "blurb": "NYC Free Museums is an interactive web map showing free museums around New York City to bring informal education to every kind of New Yorker."
     },
     {
         "id": "rootshare",
@@ -68,9 +70,8 @@
         "img-link": "assets/thumbnails/thumbnail-rootshare.webp",
         "img-arr-sm": [
             "assets/work-images/rootshare/rootshare-5.webp",
-            "assets/work-images/rootshare/rootshare-3.png",
-            "assets/work-images/rootshare/rootshare-1.png",
-            "assets/work-images/rootshare/rootshare-2.png",
+            "assets/work-images/rootshare/rootshare-2.webp",
+            "assets/work-images/rootshare/rootshare-1.webp",
             "assets/work-images/rootshare/rootshare-10.webp"
         ],
         "img-arr-lg": [
@@ -83,7 +84,7 @@
             "Rootshare is a fictional device that stores and retrieves binary data from (plant) DNA, intended for external file storage.",
             "Rootshare was born from investigations into Lindenmayer systems, hydroponic gardening, file structure and storage, and genetic engineering. Notable inspiration came from The Algorithmic Beauty of Plants, Hiding Data in DNA, and Data Garden. The Binary to DNA system is sourced entirely from Hiding Data in DNA. I synthesized this research into a product design and workflow for file storage.",
             "The device consists of a computer base and removable vase for plant storage that doubles as a touchscreen interface. The design is simple and organic, emphasizing the beauty of the plant’s fractal root structure through the materiality of glass and the placement of the user interface.",
-            "I was honored to showcase this work at the Cade Museum for Creativity & Invention."
+            "I was honored to showcase this work at the Cade Museum for Creativity & Invention. See the presentation <a href='https://drive.google.com/file/d/1xdNM0qGwcdEezyFwfyAvMHkP6ob5Xn2d/view?usp=sharing' target='_blank'>here</a>."
         ],
         "blurb": "Rootshare is a fictional device that stores and retrieves binary data from (plant) DNA, intended for external file storage."
     },
@@ -94,18 +95,22 @@
         "kind": "Creative Direction",
         "tags": [
             "publication",
-            "all"
+            "all",
+            "selected"
         ],
         "img-link": "assets/thumbnails/thumbnail-emic.webp",
         "img-arr-sm": [
             "assets/work-images/emic/emic-3.webp",
             "assets/work-images/emic/emic-6.webp",
-            "assets/work-images/emic/emic-7.webp"
+            "assets/work-images/emic/emic-7.webp",
+            "assets/work-images/emic/emic-11.webp"
         ],
         "img-arr-lg": [
             "assets/work-images/emic/emic-4.webp",
-            "assets/work-images/emic/emic-5.webp",
-            "assets/work-images/emic/emic-2.webp"
+            "assets/work-images/emic/emic-8.webp",
+            "assets/work-images/emic/emic-2.webp",
+            "assets/work-images/emic/emic-10.webp",
+            "assets/work-images/emic/emic-9.webp"
         ],
         "desc-arr": [
             "<a href='https://journals.flvc.org/emic' target='_blank'>Emic Anthropology Magazine</a> is an online and print Arts & Letters magazine showcasing student art and writing submissions as well as editorial pieces, research, and interviews centered around an anthropological topic. For three years, I led the magazine’s creative direction, including launching a rebrand and increasing brand awareness.",
@@ -147,26 +152,27 @@
         "kind": "Exhibition Design",
         "tags": [
             "exhibition",
-            "all"
+            "all",
+            "selected"
         ],
         "img-link": "assets/thumbnails/thumbnail-recordRevived.webp",
         "img-arr-sm": [
-            "assets/work-images/record-revived/record-6.webp",
-            "assets/work-images/record-revived/record-8.webp",
+            "assets/work-images/record-revived/record-2.webp",
+            "assets/work-images/record-revived/record-7.webp",
             "assets/work-images/record-revived/record-1.webp"
         ],
         "img-arr-lg": [
             "assets/work-images/record-revived/record-4.webp",
             "assets/work-images/record-revived/record-5.webp",
             "assets/work-images/record-revived/record-3.webp",
-            "assets/work-images/record-revived/record-2.webp",
+            "assets/work-images/record-revived/record-10.webp",
             "assets/work-images/record-revived/record-9.webp"
         ],
         "desc-arr": [
-            "The Record Revived is a museum exhibition set 300 years in the future, imagining that humanity rediscovers the <a href='https://science.nasa.gov/mission/voyager/voyager-golden-record-overview/' target='_blank'>Voyager Golden Record</a>. View the full explainer booklet <a href=‘https://drive.google.com/file/d/1jK0MuguZ8UglWcuHu73StXLrY0jgqlpe/view?usp=sharing’ target='_blank'>here</a>.",
+            "The Record Revived is a museum exhibition set 300 years in the future, imagining that humanity rediscovers the <a href='https://science.nasa.gov/mission/voyager/voyager-golden-record-overview/' target='_blank'>Voyager Golden Record</a>. View the full explainer booklet <a href='https://drive.google.com/file/d/1jK0MuguZ8UglWcuHu73StXLrY0jgqlpe/view?usp=sharing' target='_blank'>here</a>.",
             "I designed the exhibition's form and branding around the Gestalt principle of closure. From an anthropological perspective, closure is not just a design principle — it's human nature to fill in the blanks of our own histories. As guests experience the sounds and sights of the 20th century, each aspect of The Record Revived encourages them to imagine how their present day connects to this distant past."
         ],
-        "blurb":"The Record Revived is a museum exhibition set 300 years in the future, imagining that humanity rediscovers the Voyager Golden Record."
+        "blurb": "The Record Revived is a museum exhibition set 300 years in the future, imagining that humanity rediscovers the Voyager Golden Record."
     },
     {
         "id": "seek",
@@ -179,17 +185,14 @@
         ],
         "img-link": "assets/thumbnails/thumbnail-seek.webp",
         "img-arr-sm": [
-            "assets/work-images/seek/seek-4.webp",
-            "assets/work-images/seek/seek-2.webp",
-            "assets/work-images/seek/seek-5.webp"
+            "assets/work-images/seek/seek-1.webp"
         ],
         "img-arr-lg": [
             "assets/work-images/seek/seek-3.mp4"
         ],
         "desc-arr": [
             "The Seek Research Module is a conceptual addition to the plant and animal identification app Seek that makes research approachable and encourages citizen science.",
-            "The module allows users to browse research on identified species. It integrates research papers that use data from the Global Biodiversity Information Facility (GBIF) database, which Seek gives users the opportunity to upload their observations to. In this way, the addition of research papers into the Seek app not only improves research access, but also encourages users to contribute to active research.",
-            "View the full process book <a href=‘https://docs.google.com/presentation/d/1z8VjbmFF11CqwmmiRTFAfoHtDFD4rMcSTzBAF2iZQJs/edit?usp=sharing’ target='_blank'>here</a>."
+            "The module allows users to browse research on identified species. It integrates research papers that use data from the Global Biodiversity Information Facility (GBIF) database, which Seek gives users the opportunity to upload their observations to. In this way, the addition of research papers into the Seek app not only improves research access, but also encourages users to contribute to active research. View the full process book <a href=‘https://docs.google.com/presentation/d/1z8VjbmFF11CqwmmiRTFAfoHtDFD4rMcSTzBAF2iZQJs/edit?usp=sharing’ target='_blank'>here</a>."
         ],
         "blurb": "The Seek Research Module is a conceptual addition to the plant and animal identification app Seek that makes research approachable and encourages citizen science."
     },
@@ -204,10 +207,11 @@
         ],
         "img-link": "assets/thumbnails/thumbnail-climateWeek.webp",
         "img-arr-sm": [
-            "assets/work-images/climate-week/climate-1.jpg"
+            "assets/work-images/climate-week/climate-1.webp",
+            "assets/work-images/climate-week/climate-2.webp"
         ],
         "img-arr-lg": [
-            "assets/work-images/climate-week/climate-2.mp4",
+            "assets/work-images/climate-week/climate-4.mp4",
             "assets/work-images/climate-week/climate-3.mp4"
         ],
         "desc-arr": [
@@ -228,19 +232,16 @@
         ],
         "img-link": "assets/thumbnails/thumbnail-butch.webp",
         "img-arr-sm": [
-            "assets/work-images/butch/butch-2.mp4",
+            "assets/work-images/butch/butch-8.mp4",
             "assets/work-images/butch/butch-1.webp"
         ],
         "img-arr-lg": [
             "assets/work-images/butch/butch-6.webp",
-            "assets/work-images/butch/butch-7.webp",
             "assets/work-images/butch/butch-3.webp"
         ],
         "desc-arr": [
             "Butch is a modular display typeface highlighting Queer designers, using the metaphor of a grid to emphasize the 'building blocks' of both design and Queer history.",
-            "Butch is formed by ten unique blocks, each representing a Queer woman influential to the world of graphic design, from historical figures to young and upcoming designers. Blocks translate the designers’ styles into iconographic vector imagery, coalescing styles from embroidery to web design.",
-            "As part of this project, my cohort collectively designed a zine showcasing each student's typeface.",
-            "I created the inner page template, where I used a grid system with a strong textual hierarchy to create visual interest. The viewer's eye is immediately drawn to the large drop cap and led into the typeface's name and info. If this interests them, they can then view individual characters in an organized grid."
+            "Butch is formed by ten unique blocks, each representing a Queer woman influential to the world of graphic design, from historical figures to young and upcoming designers. Blocks translate the designers’ styles into iconographic vector imagery, coalescing styles from embroidery to web design."
         ],
         "blurb": "Butch is a modular display typeface highlighting Queer designers."
     },
@@ -251,7 +252,8 @@
         "kind": "Visual System",
         "tags": [
             "publication",
-            "all"
+            "all",
+            "selected"
         ],
         "img-link": "assets/thumbnails/thumbnail-ours.webp",
         "img-arr-sm": [
@@ -266,7 +268,7 @@
             "assets/work-images/ours/ours-6.mp4"
         ],
         "desc-arr": [
-            "Ours is a limited run Queer poetry magazine, consisting of four issues themed on time of day: Dawn, Midday, Dusk, and Midnight. View the full style guide <a href=‘https://drive.google.com/file/d/1GLGUuq73faMw6TleUWPFPz1HmnJdzt45/view?usp=sharing’ target='_blank'>here</a> and process book <a href=‘https://drive.google.com/file/d/1qwGso5uR3gpCRftTWXpToHpL4GO1Wetx/view?usp=sharing’ target='_blank'>here</a>.",
+            "Ours is a limited run Queer poetry magazine, consisting of four issues themed on time of day: Dawn, Midday, Dusk, and Midnight. View the full style guide <a href='https://drive.google.com/file/d/1GLGUuq73faMw6TleUWPFPz1HmnJdzt45/view?usp=sharing' target='_blank'>here</a> and process book <a href='https://drive.google.com/file/d/1qwGso5uR3gpCRftTWXpToHpL4GO1Wetx/view?usp=sharing' target='_blank'>here</a>.",
             "Ours' visual system is centered on dynamic household objects, used as organic patterns, standalone symbols, or image frames. Each patten is based on a core theme of poetry and paired with poems matching its theme.",
             "The system derives different versions of the same five objects through rotating 3D models and flattening chosen angles, creating variety yet maintaining consistency.",
             "Through their simplicity and familiarity, objects welcome readers into an intimate physical and digital space, reconstructing perceived notions of poetry as pretentious or abstract.",
@@ -299,7 +301,7 @@
             "The collective audio waveform is projected onto the floor in the middle of the room, providing a visual indicator of how full the audio is. The wave begins small and nondescript when only one object is interacted with, but as more are seen, it morphs into a clear waveform, revealing itself to the viewer. Each side of the room also has a waveform for its objects, enhancing the immersive experience.",
             "The video explains more about how the exhibition is executed."
         ],
-        "blurb":"Lives Never Touched is an exhibition based around sentimental objects from strangers."
+        "blurb": "Lives Never Touched is an exhibition based around sentimental objects from strangers."
     },
     {
         "id": "houseplants",
@@ -312,13 +314,13 @@
         ],
         "img-link": "assets/thumbnails/thumbnail-houseplantsMap.webp",
         "img-arr-sm": [
-            "assets/work-images/houseplants/storymap-2.mp4"
+            "assets/work-images/houseplants/storymap-3.mp4"
         ],
         "img-arr-lg": [
             "assets/work-images/houseplants/storymap-1.webp"
         ],
         "desc-arr": [
-            "This story map to educates audiences about the invasive potential of houseplants. You can view it externally <a href=‘https://storymaps.arcgis.com/stories/07717d6301e04fd0bde6bf3f17d75f4d’ target='_blank'>here</a>.",
+            "This story map to educates audiences about the invasive potential of houseplants. You can view it externally <a href='https://storymaps.arcgis.com/stories/07717d6301e04fd0bde6bf3f17d75f4d' target='_blank'>here</a>.",
             "The map maintains a consistent visual system across different mapping softwares, giving content an approachable but authoratative appearance. I also designed a few custom icons to complement the typography and maps.",
             "I wrote and researched the information for the story map, which involved digging deep into ecosystem databases from multiple countries and singling out Epiprenum aureum as a popular houseplant with a high invasive specimen count."
         ],
@@ -341,9 +343,12 @@
             "https://flo.uri.sh/visualisation/26031467/embed",
             "https://flo.uri.sh/visualisation/26102303/embed"
         ],
-        "img-arr-lg": [],
+        "img-arr-lg": [
+            "assets/work-images/ripple/ripple-1.webp",
+            "assets/work-images/ripple/ripple-2.webp"
+        ],
         "desc-arr": [
-            "Ripple Effects was the <a href=‘https://www.alligator.org/special/ripple-effects’ target='_blank'>Independent Florida Alligator’s</a> 2024 special edition on the anniversary of Trump’s 2024 election win, exploring how the administration’s policies have trickled down to the local level.",
+            "Ripple Effects was the <a href='https://www.alligator.org/special/ripple-effects' target='_blank'>Independent Florida Alligator’s</a> 2024 special edition on the anniversary of Trump’s 2024 election win, exploring how the administration’s policies have trickled down to the local level.",
             "I worked with editors to explore the data behind their stories, creating interactive graphics that gave readers context or revealed additional angles of the narrative. Graphics used layout, color, and typography to create a strong sense of informational hierarchy, allowing viewers to quickly glean necessary information while retaining the option to dive deeper into the data if it interests them.",
             "As well as multiple data graphics, I created a cover that encapsulated Gainesville's sentiments from the presidency's first year. Coupling photography from the local No Kings protest with an imposing angle of the Washington Monument, I visually implied the unrest lying beneath the surface of Gainesville's facade."
         ],
@@ -360,16 +365,13 @@
         ],
         "img-link": "assets/thumbnails/thumbnail-wontJudge.webp",
         "img-arr-sm": [
-            "assets/work-images/wont-judge/nami-1.mp4",
+            "assets/work-images/wont-judge/nami-1.webp"
+        ],
+        "img-arr-lg": [
             "assets/work-images/wont-judge/nami-2.mp4",
             "assets/work-images/wont-judge/nami-3.mp4",
             "assets/work-images/wont-judge/nami-4.mp4",
-            "assets/work-images/wont-judge/nami-5.mp4",
-            "assets/work-images/wont-judge/nami-6.mp4"
-        ],
-        "img-arr-lg": [
-            "assets/work-images/wont-judge/nami-7.webp",
-            "assets/work-images/wont-judge/nami-8.webp"
+            "assets/work-images/wont-judge/nami-5.mp4"
         ],
         "desc-arr": [
             "Motion graphics for the NAMI 988 Helpine’s Won’t Judge, Will Listen campaign showed younger audiences that the Helpline was available for purposes beyond severe mental health crises, as well as continued to destigmatize reaching out for mental health advice.",

@@ -25,7 +25,7 @@
     <div id="intro-animation-container">
         <div id="intro-label"></div>
         <div id="intro-animation">
-            <div class="intro-btn" id="intro-all-btn"></div>
+            <div class="intro-btn" id="intro-selected-btn"></div>
             <div class="intro-btn" id="intro-dataviz-btn"></div>
             <div class="intro-btn" id="intro-exhibition-btn"></div>
             <div class="intro-btn" id="intro-uiux-btn"></div>
@@ -58,9 +58,9 @@
         <div id="list-section">
             <div id="list-menu-container">
                 <div id="list-menu">
-                    <h1 id="list-header">All Work</h1>
+                    <h1 id="list-header">Selected Work</h1>
                     <div id="list-header-btns">
-                        <span>all</span>
+                        <span>selected</span>
                         <span>dataviz</span>
                         <span>exhibition</span>
                         <span>uiux</span>
@@ -71,7 +71,16 @@
             <div id="list-container"></div>
         </div>
         <div id="tree-form-container">
-            <h1 id="form-header">All Work</h1>
+            <h1 id="form-header">Selected Work</h1>
+            <div id="tree-menu">
+                <div id="tree-header-btns">
+                    <span>selected</span>
+                    <span>dataviz</span>
+                    <span>exhibition</span>
+                    <span>uiux</span>
+                    <span>publication</span>
+                </div>
+            </div>
             <form>
                 <div>
                     <label id="range-label" for="tr-range-1">Water</label>
@@ -82,13 +91,6 @@
                     <input type="range" id="tr-range-2" name="tr-range-2" min="0" max="100" value="75">
                 </div>
             </form>
-            <div class="seed-btns-container">
-                <div class="seed-btn" id="tree-all-btn"></div>
-                <div class="seed-btn" id="tree-dataviz-btn"></div>
-                <div class="seed-btn" id="tree-exhibition-btn"></div>
-                <div class="seed-btn" id="tree-uiux-btn"></div>
-                <div class="seed-btn" id="tree-publication-btn"></div>
-            </div>
         </div>
 
         <div id="view-toggle-btn-mobile">
@@ -101,6 +103,7 @@
         </div>
     </div>
 
+    <script src="script.js"></script>
     <script src="script-homepage.js"></script>
     <script src="script-navbar.js"></script>
 

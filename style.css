@@ -2,6 +2,7 @@
     --background-color: #f7f3eb;
     --background-color-accent: #e0dbd1;
     --primary-color: #121212;
+    --grey: #a2a2a2;
     --font-primary: "Museo", sans-serif;
     --font-secondary: "Geist", sans-serif;
     --all: #445F35;
@@ -41,6 +42,11 @@ body {
 }
 
 .all-highlight {
+    background-color: var(--all);
+    color: var(--background-color);
+}
+
+.selected-highlight {
     background-color: var(--all);
     color: var(--background-color);
 }
