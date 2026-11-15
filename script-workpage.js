@@ -222,7 +222,12 @@ readWorkJSON('assets/work.json')
             }
         }
 
-        window.addEventListener('load', () => setUpDescriptions());
+        // checks if document info is loaded
+        if (document.readyState === 'complete') {
+            setUpDescriptions();
+        } else {
+            window.addEventListener('load', () => setUpDescriptions());
+        }
 
         let timer;
         window.addEventListener('resize', () => {

@@ -20,7 +20,6 @@ improve work images
 zoom image and video on click
 
 PRIORITY:
-stop images from resizing on scroll on mobile..?
 
 LAUNCH???
 
