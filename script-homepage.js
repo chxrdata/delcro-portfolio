@@ -7,7 +7,6 @@ const desktopAbout = document.getElementById('home-about-desktop');
 const toggleViewBtnDesktop = document.getElementById('view-toggle-btn-desktop');
 const toggleViewBtnMobile = document.getElementById('view-toggle-btn-mobile');
 
-
 async function readWorkJSON(filePath) {
     try {
         const response = await fetch(filePath)
@@ -647,11 +646,13 @@ readWorkJSON('assets/work.json')
 
                     newLinkBtn.href = work.link;
                     newLinkBtn.classList.add("tree-link-btn");
-                    if (localStorage.getItem('visitedPages').split(',').length === data.length) {
-                        localStorage.setItem('visitedPages', '');
-                    }
-                    if (localStorage.getItem('visitedPages').split(',').includes(work.id)) {
-                        newLinkBtn.classList.add('grey');
+                    if (localStorage.getItem('visitedPages')) {
+                        if (localStorage.getItem('visitedPages').split(',').length === data.length) {
+                            localStorage.setItem('visitedPages', '');
+                        }
+                        if (localStorage.getItem('visitedPages').split(',').includes(work.id)) {
+                            newLinkBtn.classList.add('grey');
+                        };
                     };
 
                     if (type === 'all') {
