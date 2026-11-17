@@ -88,7 +88,7 @@ readWorkJSON('assets/work.json')
                 video.src = link;
                 videoContainer.appendChild(video);
 
-                if (work.id === 'lnt' || work.id === 'wont-judge') { // only add audio controls for videos with audio, which is only lnt currently
+                if (work.id === 'lnt' || work.id === 'wont-judge') { // only add audio controls for videos with audio, which is only lnt currently 
                     const volumeBtn = document.createElement("div");
                     volumeBtn.style.backgroundImage = 'url(assets/icons/vol-mute.svg)';
                     if (work.id === 'lnt') {
