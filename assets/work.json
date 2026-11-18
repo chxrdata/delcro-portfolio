@@ -379,5 +379,30 @@
             "I created advertisements in English and Spanish for Instagram and Youtube."
         ],
         "blurb": "Motion graphics for the NAMI 988 Helpine’s Won’t Judge, Will Listen campaign showed younger audiences that the Helpline was available for purposes beyond severe mental health crises."
+    },
+    {
+        "id": "hfet",
+        "link": "hfet.html",
+        "name": "Health Foundation of East Texas",
+        "kind": "Website Design",
+        "tags": [
+            "uiux",
+            "all"
+        ],
+        "img-link": "assets/thumbnails/thumbnail-wontJudge.webp",
+        "img-arr-sm": [
+            "assets/work-images/hfet/hfet-1.webp",
+            "assets/work-images/hfet/hfet-2.mp4"
+        ],
+        "img-arr-lg": [
+            "assets/work-images/hfet/hfet-3.mp4"
+        ],
+        "desc-arr": [
+            "The Health Foundation of East Texas (HFET) website focused on modernizing the nonprofit’s image through typography, color, and clean components. HFET is an organization that invests in partnerships to support community health and wellbeing in Tyler, Texas. The nonprofit wanted a website refresh based on its new color palette and brand voice.",
+            "HFET’s home page leads with images of the vibrant community, immediately speaking to Tyler locals. Highlights are displayed atop large hero images, keeping a minimal layout accentuated with electric green.",
+            "Throughout the site, high-contrast hover states underscore clean layouts for moments of personality and brand voice. A combination of serif and sans-serif typography highlights the organization’s history while making room for modernity.",
+            "A custom animation explains the nonprofit’s “canopy” approach, working at all levels of communities."
+        ],
+        "blurb": "The Health Foundation of East Texas website focused on modernizing the nonprofit’s image through typography, color, and clean components."
     }
 ]
